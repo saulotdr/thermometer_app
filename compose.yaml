@@ -1,0 +1,23 @@
+networks:
+  samsung:
+
+services:
+  thermometer-app:
+    container_name: thermometer-app
+    image: openjdk:17-alpine
+    entrypoint: ["java", "-jar", "/env/thermometer-0.0.1-SNAPSHOT.jar"]
+    networks:
+      - samsung
+    volumes:
+      - ./env:/env
+    ports:
+      - "127.0.0.1:8080:8080"
+  db:
+    image: mysql:8.0.28
+    container_name: db
+    environment:
+      MYSQL_ROOT_PASSWORD: "thermo1234"
+    ports:
+      - "127.0.0.1:3306:3306"
+    networks:
+      - samsung
