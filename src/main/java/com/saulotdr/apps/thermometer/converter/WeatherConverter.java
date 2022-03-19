@@ -30,6 +30,7 @@ public class WeatherConverter {
     public WeatherDto toDto(Weather weather) {
         return WeatherDto.builder()
                 .temperature(String.valueOf(weather.getTemperature()))
+                .city(weather.getSettings().getCity())
                 .createdAt(weather.getCreatedAt())
                 .build();
     }

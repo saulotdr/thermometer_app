@@ -12,10 +12,12 @@ public class Settings {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column
+    @Column(unique = true)
     private String city;
     @Column
     private Float boilingThreshold;
     @Column
     private Float freezingThreshold;
+    @Column
+    private boolean active;
 }

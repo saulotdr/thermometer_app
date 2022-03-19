@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thermometer App</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="index.html">
+        <img src="samsung.png">
+      </a>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item">
+          Home
+        </a>
+      </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a id="settings_button" class="button is-info">
+              <strong>Toggle Settings</strong>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="section">
+    <div id="notification_is_freezing" class="notification is-info is-hidden">
+      <button class="delete"></button>
+      <text></text>
+    </div>
+    <div id="notification_is_boiling" class="notification is-danger is-hidden">
+      <button class="delete"></button>
+      <text></text>
+    </div>
+    <div class="container">
+      <h1 class="title">
+        Thermometer Application
+      </h1>
+      <p class="subtitle">
+        Here you can see the temperature on your location
+      </p>
+    </div>
+  </section>
+  <section id="hero_id" class="hero" style="background-color: antiquewhite;">
+    <div class="hero-body">
+      <div class="columns is-mobile is-desktop">
+        <div class="column is-half is-offset-one-quarter">
+          <div id="notification_error_thresholds" class="notification is-danger is-hidden">
+            <button class="delete"></button>
+            Enter a valid number like: <strong>10.5</strong> or <strong>-5.6</strong>
+          </div>
+          <div id="notification_error_city" class="notification is-danger is-hidden">
+            <button class="delete"></button>
+            <text>Enter a valid city name</text>
+          </div>
+          <div id="notification_success" class="notification is-primary is-hidden">
+            <button class="delete"></button>
+            <text>Enter a valid city name</text>
+          </div>
+          <div class="field">
+            <p>Enter the <strong>city</strong> that will be monitored:</p>
+            <div class="control">
+              <input id="city_input" class="input" type="text" placeholder="Vancouver">
+            </div>
+          </div>
+          <div class="field">
+            <p>Enter the <strong>freezing</strong> threshold:</p>
+            <div class="control">
+              <input id="freezing_input" class="input" type="text" placeholder="0.0">
+            </div>
+          </div>
+          <div class="field">
+            <p>Enter the <strong>boiling</strong> threshold:</p>
+            <div class="control">
+              <input id="boiling_input" class="input" type="text" placeholder="100.0">
+            </div>
+          </div>
+          <div class="field is-grouped">
+            <div class="control">
+              <button id="send_settings" class="button is-link">Update</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="columns is-mobile is-desktop">
+      <div class="column is-half is-offset-one-quarter">
+        <div class="card">
+          <div class="card-content">
+            <div class="column is-offset-one-quarter">
+              <p id="temperature" class="title" style="font-size: 8rem;">
+                -- °C
+              </p>
+                <p id="content_body" class="subtitle">
+                  Undefined location. Last updated at: --:--
+                </p>
+            </div>
+          </div>
+          <footer class="card-footer">
+            <p class="card-footer-item">
+              <span >
+                <button id="refresh_temperature" class="button is-link">Refresh</button>
+              </span>
+            </p>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="_javascript/stomp.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+  <script src="_javascript/main.js"></script>
+</body>
+
+</html>

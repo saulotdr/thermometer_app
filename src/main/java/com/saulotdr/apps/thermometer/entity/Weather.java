@@ -18,7 +18,7 @@ public class Weather {
     private Float temperature;
     @Column(name = "created_at")
     private Instant createdAt;
-    @OneToOne
+    @ManyToOne
     @JoinColumn
     private Settings settings;
 }

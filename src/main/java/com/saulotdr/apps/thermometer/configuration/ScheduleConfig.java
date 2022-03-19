@@ -13,7 +13,7 @@ public class ScheduleConfig {
     @Autowired
     private WeatherBatch batch;
 
-    @Scheduled(fixedRate = 10000) //5 minutes
+    @Scheduled(fixedRate = 30000)
     public void run() {
         batch.update();
     }

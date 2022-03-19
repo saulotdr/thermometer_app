@@ -14,15 +14,13 @@ public class Application {
         SpringApplication app = new SpringApplication(Application.class);
         app.addListeners(new AppListener());
         app.run(args);
-
     }
 
     public static class AppListener implements ApplicationListener<ApplicationEnvironmentPreparedEvent> {
         @Override
         public void onApplicationEvent(ApplicationEnvironmentPreparedEvent applicationEnvironmentPreparedEvent) {
-            System.setProperty("aws.accessKeyId", "<insert_the_access_key_here>");
-            System.setProperty("aws.secretAccessKey", "<insert_the_secret_here>");
+            System.setProperty("aws.accessKeyId", "AKIA5M3FRD66AHX4URGX");
+            System.setProperty("aws.secretAccessKey", "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");
         }
     }
-
 }

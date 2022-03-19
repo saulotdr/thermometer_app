@@ -15,7 +15,7 @@ public class WeatherController {
     @Autowired
     private WeatherService weatherService;
 
-    @GetMapping
+    @GetMapping(consumes = "*/*", produces = "application/json")
     public ResponseEntity<WeatherDto> getCurrentTemperature() {
         return ResponseEntity
                 .ok(weatherService.getCurrentWeather());

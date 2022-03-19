@@ -7,4 +7,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SettingsRepository extends JpaRepository<Settings, Long> {
 
+    Settings findByActive(Boolean active);
+    Settings findByCity(String city);
+
 }
